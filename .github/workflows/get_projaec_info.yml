@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 迁出代码
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: 安装Python
       uses: actions/setup-python@v2
       with:
@@ -27,12 +27,12 @@ jobs:
         pip install -r requirements.txt
     - name: 执行任务
       run: |
-        python get_projaec_info.py --user ermaozi --project get_subscribe --save_path mail/project_info.svg --theme dark --token ${{ secrets.TOKEN }}
+        python get_projaec_info.py --user wanghz --project get_subscribe --save_path mail/project_info.svg --theme dark --token ${{ secrets.TOKEN }}
     - name: 提交更改
       run: |
          git config core.ignorecase false
-         git config --local user.email "admin@ermao.net"
-         git config --local user.name "ermaozi"
+         git config --local user.email "wanghz518@gmail.com"
+         git config --local user.name "wanghz"
          git add .
          git commit -m "更新项目信息"
          git push
